@@ -1,0 +1,94 @@
+:root {
+  --color-grey-50: #f6f6f8;
+  --color-grey-100: #e9e9ea;
+  --color-grey-200: #e4e4e5;
+  --color-grey-300: #d8d8d8;
+  --color-grey-400: #c6c6c8;
+  --color-grey-500: #909499;
+  --color-grey-550: #98989e;
+  --color-grey-600: #83838b;
+  --color-grey-700: #676771;
+  --color-grey-800: #4f4f59;
+
+  --color-grey-01: #171725;
+  --color-grey-04: #92929d;
+  --color-grey-05: #b5b5be;
+  --color-grey-06: #d5d5dc;
+  --color-grey-07: #e2e2ea;
+  --color-grey-08: #f1f1f5;
+  --color-grey-09: #fafafb;
+  --color-grey-03: #696974;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-secondary-50: #f0fdf9;
+  --color-secondary-100: #bdf4e5;
+  --color-secondary-200: #75ebca;
+  --color-secondary-300: #2ee5b2;
+  --color-secondary-400: #15d19c;
+  --color-secondary-500: #1cb88c;
+  --color-secondary-600: #219f7c;
+  --color-secondary-700: #138263;
+  --color-secondary-800: #0f6950;
+  --color-secondary-900: #0a4736;
+
+  --color-primary-50: #edf0ff;
+  --color-primary-100: #e1e6ff;
+  --color-primary-200: #b7c2ff;
+  --color-primary-300: #92a3ff;
+  --color-primary-400: #6e85ff;
+  --color-primary-500: #0062ff;
+  --color-primary-600: #4a66ff;
+  --color-primary-700: #2c3d99;
+  --color-primary-800: #1e2966;
+  --color-primary-900: #101a3c;
+
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fffaeb;
+  --color-warning-75: #fedf89;
+  --color-warning-100: #fdb022;
+  --color-warning-200: #f79009;
+  --color-warning-300: #dc6809;
+
+  --color-errors-25: #fef3f2;
+  --color-errors-50: #fecdc9;
+  --color-errors-75: #fda19b;
+  --color-errors-100: #f97066;
+  --color-errors-200: #f04438;
+  --color-errors-300: #d92d20;
+  --color-errors-400: #ed4545;
+
+  --color-success-25: #ecfdf3;
+  --color-success-50: #d1fadf;
+  --color-success-75: #a6f4c5;
+  --color-success-100: #6ce9a6;
+  --color-success-200: #32d583;
+  --color-success-300: #12b76a;
+  --color-success-400: #039855;
+
+  --shadow-a: 0px 10px 40px -6px rgba(18, 26, 36, 0.08);
+  --shadow-popup: 0px -2px 8px -2px rgb(0 0 0 / 6%), 0px 6px 12px -2px rgb(0 0 0 / 25%);
+  --border-input: 1px solid var(--color-grey-400);
+
+  --shadow-sm: 0px 12px 18px rgba(23, 23, 37, 0.04);
+  --shadow: 0px -1px 5px rgba(0, 0, 0, 0.06), 0px 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0px -0.5px 4px -3px rgba(0, 0, 0, 0.06), 0px 4px 10px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0px -2px 13px -2px rgba(0, 0, 0, 0.05), 0px 10px 20px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0px -1px 13px -5px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0px -1px 13px -5px rgba(0, 0, 0, 0.04), 0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-inner: inset 0px 2px 4px rgba(0, 0, 0, 0.06);
+
+  --color-primary-blue: #326bd4;
+  --color-primary-semi-blue: #3d79e6;
+  --color-primary-dark-blue: #265cc0;
+  --color-primary-light-blue: #dee7f6;
+
+  // button
+  --color-btn-primary-disabled: #9cb0d4;
+  --color-outline-disabled-bg: #f9f9fa;
+  --color-outline-disabled: #b5b5b9;
+}
+
+:root {
+  accent-color: var(--color-secondary-300);
+}

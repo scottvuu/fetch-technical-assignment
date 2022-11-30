@@ -1,0 +1,21 @@
+.nav {
+  height: $NAVIGATION-BOTTOM-HEIGHT;
+  &__list {
+    border: 1px solid var(--color-grey-07);
+    position: fixed;
+    z-index: $ZINDEX_NAVIGATION-BOTTOM-HEIGHT;
+    width: 375px;
+    background: var(--color-white);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    @include pc {
+      width: 100%;
+    }
+  }
+  &__item {
+    svg {
+      color: var(--color-grey-06);
+    }
+  }
+}

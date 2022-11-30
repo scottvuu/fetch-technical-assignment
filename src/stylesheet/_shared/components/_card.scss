@@ -1,0 +1,28 @@
+.card {
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-grey-08);
+  border-radius: toRem(4px);
+  width: 100%;
+  max-width: toRem(320);
+  @include tb {
+    max-width: toRem(200);
+  }
+  @include sp {
+    max-width: toRem(200);
+  }
+  &-thumbImg {
+    border-radius: toRem(4px 4px 0 0);
+    img {
+      border-radius: toRem(3px 3px 0 0);
+    }
+  }
+  &-body {
+    padding: toRem(12 16 16 16);
+    min-height: toRem(135px);
+  }
+  &-title {
+    margin-bottom: toRem(8px);
+  }
+  &-description {
+  }
+}

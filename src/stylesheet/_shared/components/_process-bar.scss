@@ -1,0 +1,34 @@
+.process-bar {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-grey-07);
+  border-radius: toRem(2.5px);
+  width: 100%;
+  &-sm {
+    height: toRem(5px);
+    border-radius: toRem(4px);
+    &-active {
+      background: var(--color-primary-500);
+      height: 100%;
+      border-radius: toRem(2.5px);
+    }
+  }
+  &-md {
+    height: toRem(8px);
+    border-radius: toRem(8px);
+    &-active {
+      background: var(--color-primary-500);
+      height: 100%;
+      border-radius: toRem(20);
+    }
+  }
+  &-lg {
+    height: toRem(16);
+    border-radius: toRem(16px);
+    &-active {
+      background: var(--color-primary-500);
+      height: 100%;
+      border-radius: toRem(30px);
+    }
+  }
+}

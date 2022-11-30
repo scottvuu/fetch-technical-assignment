@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  color: var(--color-grey-01);
+  font-family: $ff-default;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-osx-font-smoothing: grayscale;
+  line-height: normal;
+  min-height: 100%;
+}
+
+body.fixed {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+a:not(.link-icon):hover {
+  color: var(--color-primary-500);
+  transition: all 0.2s ease;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  display: inline;
+}
+
+button {
+  border: none;
+  background: unset;
+  display: inline-block;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  word-break: break-word;
+}
+
+.logo {
+  width: 80px;
+}
+
+.icon {
+  width: auto;
+  height: 24px;
+
+  &--s {
+    width: auto;
+    height: 20px;
+  }
+
+  &--xs {
+    width: auto;
+    height: 16px;
+  }
+
+  &--sxs {
+    width: auto;
+    height: 12px;
+  }
+}
+
+.pointer-event {
+  cursor: pointer;
+}
+
+.no-border {
+  border: unset;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+
+.main-content {
+  max-width: toRem(375);
+  margin: auto;
+  @include pc {
+    width: 100%;
+    max-width: unset;
+  }
+}

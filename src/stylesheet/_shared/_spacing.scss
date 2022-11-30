@@ -1,0 +1,57 @@
+$spaceamounts: (
+  -4,
+  -8,
+  -12,
+  -16,
+  -20,
+  -24,
+  -28,
+  -32,
+  -36,
+  -40,
+  -64,
+  0,
+  4,
+  8,
+  12,
+  16,
+  20,
+  24,
+  28,
+  32,
+  36,
+  40,
+  48,
+  56,
+  64,
+  72,
+  80
+);
+
+@include margin-auto();
+
+@each $space in $spaceamounts {
+  @include base-spacing($space);
+  @include gap-spacing($space)
+}
+
+@include pc() {
+  @include responsive-margin-auto('pc');
+  @each $space in $spaceamounts {
+    @include responsive-spacing($space, 'pc');
+  }
+}
+
+@include tb() {
+  @include responsive-margin-auto('tb');
+  @each $space in $spaceamounts {
+    @include responsive-spacing($space, 'tb');
+  }
+}
+
+@include sp() {
+  @include responsive-margin-auto('sp');
+  @each $space in $spaceamounts {
+    @include responsive-spacing($space, 'sp');
+  }
+}

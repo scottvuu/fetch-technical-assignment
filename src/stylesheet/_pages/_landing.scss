@@ -1,0 +1,49 @@
+$HEADER-PADDING-BOTTOM: 225;
+
+.header-banner {
+  position: relative;
+  padding-bottom: toRem($HEADER-PADDING-BOTTOM);
+  background-color: var(--color-grey-01);
+  .balance {
+    position: absolute;
+    margin: 32px auto 0;
+    width: calc(100% - 32px);
+    max-width: $WIDTH-MB;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-09);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    .bling-bg {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-image: url('../../../public/assets/images/bling.svg');
+      background-size: cover;
+      z-index: 0;
+    }
+    .coupon-btn {
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+  .amount {
+    position: relative;
+    z-index: 2;
+    font-size: toRem(48);
+    line-height: toRem(48);
+  }
+  div,
+  button,
+  a,
+  p {
+    position: relative;
+    z-index: 2;
+  }
+  & + div {
+    margin-top: toRem($HEADER-PADDING-BOTTOM + 75);
+  }
+}

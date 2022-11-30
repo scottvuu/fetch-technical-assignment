@@ -1,0 +1,649 @@
+// === RESPOND ABOVE ===
+// @include respond-above(small) {}
+@mixin respond-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// === RESPOND BELOW ===
+// @include respond-below(small) {}
+@mixin respond-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// === RESPOND BETWEEN ===
+// @include respond-between(small, medium);
+@mixin respond-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+  } @else {
+    @if (map-has-key($breakpoints, $lower) == false) {
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+    @if (map-has-key($breakpoints, $upper) == false) {
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin font-icon($icon) {
+  content: map-get($font-icon, $icon);
+  font-family: $font-family-icon;
+}
+
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@mixin placeholder() {
+  ::-webkit-input-placeholder {
+    /* Edge */
+    @content;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    @content;
+  }
+  ::placeholder {
+    @content;
+  }
+}
+
+// === CONVERT PXREM ===
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function convertRootPxToEm($value) {
+  // check for null:
+  @if ($value == null) {
+    @return $value;
+  }
+  // assume em:
+  @if (unitless($value) or unit($value) == em) {
+    @return 0em + $value;
+  } @else {
+    @return 0em + strip-units($value) / 16;
+  }
+}
+
+@function convertPxToRem($px) {
+  @return 0rem + strip-units($px) / 16;
+}
+
+@mixin pxRem($property, $values) {
+  // Create a couple of empty lists as output buffers:
+  $px-values: ();
+  $rem-values: ();
+
+  // Ensure $values is a list.
+  @if type-of($values) != "list" {
+    $values: join((), $values);
+  }
+
+  // Loop through the $values list:
+  @each $value in $values {
+    @if type-of($value) == number and (unitless($value) or unit($value) == px) {
+      $px-values: join($px-values, 0px + ($value));
+      $rem-values: join($rem-values, convertPxToRem($value));
+    } @else {
+      // no conversion:
+      $px-values: join($px-values, $value);
+      $rem-values: join($rem-values, $value);
+    }
+  }
+
+  #{$property}: $px-values;
+
+  // don't add media query if it's not needed:
+  @if $px-values != $rem-values {
+    // @media only all {
+    #{$property}: $rem-values;
+    // }
+  }
+}
+
+@function convertPxToEm($px) {
+  @return 0em + strip-units($px) / 16;
+}
+
+@mixin pxEm($property, $values) {
+  // Create a couple of empty lists as output buffers:
+  $px-values: ();
+  $rem-values: ();
+
+  // Ensure $values is a list.
+  @if type-of($values) != "list" {
+    $values: join((), $values);
+  }
+
+  // Loop through the $values list:
+  @each $value in $values {
+    @if type-of($value) == number and (unitless($value) or unit($value) == px) {
+      $px-values: join($px-values, 0px + ($value));
+      $rem-values: join($rem-values, convertPxToEm($value));
+    } @else {
+      // no conversion:
+      $px-values: join($px-values, $value);
+      $rem-values: join($rem-values, $value);
+    }
+  }
+
+  #{$property}: $px-values;
+
+  // don't add media query if it's not needed:
+  @if $px-values != $rem-values {
+    // @media only all {
+    #{$property}: $rem-values;
+    // }
+  }
+}
+
+@function toRem($values) {
+  $px-values: ();
+  $rem-values: ();
+
+  @if type-of($values) != "list" {
+    $values: join((), $values);
+  }
+
+  // Loop through the $values list:
+  @each $value in $values {
+    @if type-of($value) == number and (unitless($value) or unit($value) == px) {
+      $rem-values: join($rem-values, convertPxToRem($value));
+    } @else {
+      // no conversion:
+      $rem-values: join($rem-values, $value);
+    }
+  }
+
+  // don't add media query if it's not needed:
+  @if $px-values != $rem-values {
+    // @media only all {
+    @return $rem-values;
+    // }
+  }
+
+  @return $px-values;
+}
+
+@mixin transition() {
+  transition: all 0.3s ease;
+}
+
+@mixin border($color: $color-text-boder) {
+  border: 1px solid $color;
+  @include pxRem(border-radius, 3);
+}
+
+@mixin boxShadow() {
+  @include pxRem(box-shadow, 0 4 8 rgba(0, 0, 0, 0.15));
+}
+
+@mixin boxShadowLight() {
+  @include pxRem(box-shadow, 0 2 8 rgba(0, 0, 0, 0.15));
+}
+
+@mixin loading() {
+  background-color: #e3e3e5;
+  background-image: linear-gradient(90deg, #dbdbdb, #dbdbdb, #dbdbdb);
+  background-repeat: repeat;
+  border-radius: 10px;
+}
+
+@mixin loadingLight() {
+  background-color: #e3e3e5;
+  background-image: linear-gradient(90deg, #e3e3e5, #e3e3e5, #e3e3e5);
+  background-repeat: repeat;
+  border-radius: 10px;
+}
+
+@mixin loadingLighter() {
+  background-color: #e3e3e5;
+  background-image: linear-gradient(90deg, #efefef, #efefef, #efefef);
+  background-repeat: repeat;
+  border-radius: 10px;
+}
+
+@mixin pc() {
+  @media (min-width: $WIDTH-TB + 1) {
+    @content;
+  }
+}
+
+@mixin tb() {
+  @media (min-width: $WIDTH-SP + 1) and (max-width: $WIDTH-TB) {
+    @content;
+  }
+}
+
+@mixin sp() {
+  @media (max-width: $WIDTH-SP) {
+    @content;
+  }
+}
+
+@mixin tb-down() {
+  @media (min-width: $WIDTH-SP + 1) and (max-width: $WIDTH-TB) {
+    @content;
+  }
+  @media (max-width: $WIDTH-SP) {
+    @content;
+  }
+}
+
+/*
+convert line-height & letter-spacing px values into relative value.
+px-based values can be extracted from Abstract. Always use this to define line-height & letter-spacing
+If cutLineSpace=true, the spacing the top of first-line & the bottom of last-line caused by line-height will be killed.
+--------------------------------------------------------- */
+@mixin fonts(
+  $fontSizePx: false,
+  $lineHeightPx: false,
+  $letterSpacingPx: false,
+  $cutLineSpace: false
+) {
+  @if ($fontSizePx) {
+    font-size: toRem(($fontSizePx + px));
+  }
+
+  // @if ($lineHeightPx) {
+  //   line-height: $lineHeightPx / $fontSizePx;
+  // }
+
+  @if ($letterSpacingPx) {
+    letter-spacing: ($letterSpacingPx / $fontSizePx) + em;
+  }
+
+  @if ($cutLineSpace) {
+    &::before,
+    &::after {
+      display: block;
+      overflow: hidden;
+      content: "";
+    }
+
+    $_marginVal: toRem((($lineHeightPx - $fontSizePx) * -0.5));
+
+    &::before {
+      margin-bottom: toRem(($_marginVal + px));
+    }
+    &::after {
+      margin-top: toRem(($_marginVal + px));
+    }
+  }
+}
+
+@mixin message() {
+  .message {
+    margin-top: 10px;
+    font-size: 16px;
+    color: $color-text-grey-c;
+
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+@mixin centerer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin asideLoading {
+  margin-top: 150px;
+}
+
+@mixin accordionNextBtn {
+  #nextBtn {
+    height: 38px;
+    width: 82px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+@mixin font-weight($weight: normal) {
+  .font-#{$weight} {
+    font-weight: $weight;
+  }
+}
+
+@mixin base-spacing($space) {
+  .m-#{$space} {
+    margin: #{$space}px;
+  }
+
+  .mx-#{$space} {
+    margin-left: #{$space}px;
+    margin-right: #{$space}px;
+  }
+
+  .my-#{$space} {
+    margin-top: #{$space}px;
+    margin-bottom: #{$space}px;
+  }
+
+  .ml-#{$space} {
+    margin-left: #{$space}px;
+  }
+
+  .mr-#{$space} {
+    margin-right: #{$space}px;
+  }
+
+  .mb-#{$space} {
+    margin-bottom: #{$space}px;
+  }
+
+  .mt-#{$space} {
+    margin-top: #{$space}px;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px;
+  }
+
+  .px-#{$space} {
+    padding-left: #{$space}px;
+    padding-right: #{$space}px;
+  }
+
+  .py-#{$space} {
+    padding-top: #{$space}px;
+    padding-bottom: #{$space}px;
+  }
+
+  .pl-#{$space} {
+    padding-left: #{$space}px;
+  }
+
+  .pr-#{$space} {
+    padding-right: #{$space}px;
+  }
+
+  .pb-#{$space} {
+    padding-bottom: #{$space}px;
+  }
+
+  .pt-#{$space} {
+    padding-top: #{$space}px;
+  }
+}
+
+@mixin responsive-spacing($space, $prefix) {
+  .#{$prefix}__m-#{$space} {
+    margin: #{$space}px;
+  }
+
+  .#{$prefix}__mx-#{$space} {
+    margin-left: #{$space}px;
+    margin-right: #{$space}px;
+  }
+
+  .#{$prefix}__my-#{$space} {
+    margin-top: #{$space}px;
+    margin-bottom: #{$space}px;
+  }
+
+  .#{$prefix}__ml-#{$space} {
+    margin-left: #{$space}px;
+  }
+
+  .#{$prefix}__mr-#{$space} {
+    margin-right: #{$space}px;
+  }
+
+  .#{$prefix}__mb-#{$space} {
+    margin-bottom: #{$space}px;
+  }
+
+  .#{$prefix}__mt-#{$space} {
+    margin-top: #{$space}px;
+  }
+
+  .#{$prefix}__p-#{$space} {
+    padding: #{$space}px;
+  }
+
+  .#{$prefix}__px-#{$space} {
+    padding-left: #{$space}px;
+    padding-right: #{$space}px;
+  }
+
+  .#{$prefix}__py-#{$space} {
+    padding-top: #{$space}px;
+    padding-bottom: #{$space}px;
+  }
+
+  .#{$prefix}__pl-#{$space} {
+    padding-left: #{$space}px;
+  }
+
+  .#{$prefix}__pr-#{$space} {
+    padding-right: #{$space}px;
+  }
+
+  .#{$prefix}__pb-#{$space} {
+    padding-bottom: #{$space}px;
+  }
+
+  .#{$prefix}__pt-#{$space} {
+    padding-top: #{$space}px;
+  }
+}
+
+@mixin margin-auto() {
+  .m-auto {
+    margin: auto;
+  }
+
+  .my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mt-auto {
+    margin-top: auto;
+  }
+
+  .mb-auto {
+    margin-bottom: auto;
+  }
+
+  .ml-auto {
+    margin-left: auto;
+  }
+
+  .mr-auto {
+    margin-right: auto;
+  }
+}
+
+@mixin responsive-margin-auto($prefix) {
+  .#{$prefix}__m-auto {
+    margin: auto;
+  }
+
+  .#{$prefix}__my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .#{$prefix}__mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .#{$prefix}__mt-auto {
+    margin-top: auto;
+  }
+
+  .#{$prefix}__mb-auto {
+    margin-bottom: auto;
+  }
+
+  .#{$prefix}__ml-auto {
+    margin-left: auto;
+  }
+
+  .#{$prefix}__mr-auto {
+    margin-right: auto;
+  }
+}
+
+@mixin width() {
+  .w-min-content {
+    width: min-content;
+  }
+  .w-max-content {
+    width: max-content;
+    max-width: max-content;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .w-half {
+    width: 50%;
+  }
+  .w-auto {
+    width: auto;
+  }
+  .w-100 {
+    width: 100% !important;
+  }
+  .h-100 {
+    height: 100% !important;
+  }
+  .w-fit-content {
+    width: fit-content;
+  }
+}
+
+@mixin ellipsis-at($max-width) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: $max-width;
+}
+
+@mixin base-text-size($size) {
+  .text-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+/* Customize website's scrollbar like Mac OS */
+@mixin scrollbars(
+  $foreground-color: rgba(186, 186, 192, 0),
+  $size: 5px,
+  $background-color: transparent
+) {
+  // For Chrome & Safari
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  // Standard version (Firefox only for now)
+  // scrollbar-color: $foreground-color $background-color;
+}
+
+@mixin wonso-transition($type: all) {
+  -webkit-transition: $type 0.25s cubic-bezier(0, 1, 0.4, 1),
+    transform 0.25s cubic-bezier(0.18, 1.25, 0.4, 1) !important;
+  -moz-transition: $type 0.25s cubic-bezier(0, 1, 0.4, 1),
+    transform 0.25s cubic-bezier(0.18, 1.25, 0.4, 1) !important;
+  -ms-transition: $type 0.25s cubic-bezier(0, 1, 0.4, 1),
+    transform 0.25s cubic-bezier(0.18, 1.25, 0.4, 1) !important;
+  -o-transition: $type 0.25s cubic-bezier(0, 1, 0.4, 1),
+    transform 0.25s cubic-bezier(0.18, 1.25, 0.4, 1) !important;
+  transition: $type 0.25s cubic-bezier(0, 1, 0.4, 1),
+    transform 0.25s cubic-bezier(0.18, 1.25, 0.4, 1) !important;
+}
+
+// default select shadow (only for select at the moment)
+@mixin control-shadow() {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(64 68 82 / 8%) 0px 2px 5px 0px;
+}
+
+// shadow when focus, for most form controls
+@mixin control-shadow-highlight() {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(92 117 255 / 36%) 0px 0px 0px 2px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(64 68 82 / 8%) 0px 2px 5px 0px;
+}
+
+// shadow when focus but with error
+@mixin control-shadow-error() {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(240 68 56 / 36%) 0px 0px 0px 2px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(64 68 82 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(64 68 82 / 8%) 0px 2px 5px 0px !important;
+}
+
+@mixin flex-order($space) {
+  .order-#{$space} {
+    order: $space;
+  }
+}
+
+@mixin gap-spacing($space) {
+  .gap-#{$space} {
+    gap: #{$space}px;
+  }
+}
