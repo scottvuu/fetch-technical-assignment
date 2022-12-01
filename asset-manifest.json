@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "https://scottvuu.github.io/static/css/main.35dfc490.css",
-    "main.js": "https://scottvuu.github.io/static/js/main.54d2ae67.js",
-    "static/js/170.d7b49381.chunk.js": "https://scottvuu.github.io/static/js/170.d7b49381.chunk.js",
-    "static/js/787.0420ccf9.chunk.js": "https://scottvuu.github.io/static/js/787.0420ccf9.chunk.js",
-    "static/media/Hellix-Bold.woff": "https://scottvuu.github.io/static/media/Hellix-Bold.5032fd667cf8a7de05e1.woff",
-    "static/media/Hellix-Regular.woff": "https://scottvuu.github.io/static/media/Hellix-Regular.7ba8e1e3f7ad811d4c0f.woff",
-    "static/media/Hellix-SemiBold.woff": "https://scottvuu.github.io/static/media/Hellix-SemiBold.f5d4672505972ff15b55.woff",
-    "static/media/bling.svg": "https://scottvuu.github.io/static/media/bling.b6652f66b1d9225bccfd.svg",
-    "index.html": "https://scottvuu.github.io/index.html",
-    "main.35dfc490.css.map": "https://scottvuu.github.io/static/css/main.35dfc490.css.map",
-    "main.54d2ae67.js.map": "https://scottvuu.github.io/static/js/main.54d2ae67.js.map",
-    "170.d7b49381.chunk.js.map": "https://scottvuu.github.io/static/js/170.d7b49381.chunk.js.map",
-    "787.0420ccf9.chunk.js.map": "https://scottvuu.github.io/static/js/787.0420ccf9.chunk.js.map"
+    "main.css": "/fetch-technical-assignment/static/css/main.d6e35f78.css",
+    "main.js": "/fetch-technical-assignment/static/js/main.7d6aee9b.js",
+    "static/js/170.00bbf436.chunk.js": "/fetch-technical-assignment/static/js/170.00bbf436.chunk.js",
+    "static/js/787.0420ccf9.chunk.js": "/fetch-technical-assignment/static/js/787.0420ccf9.chunk.js",
+    "static/media/Hellix-Bold.woff": "/fetch-technical-assignment/static/media/Hellix-Bold.5032fd667cf8a7de05e1.woff",
+    "static/media/Hellix-Regular.woff": "/fetch-technical-assignment/static/media/Hellix-Regular.7ba8e1e3f7ad811d4c0f.woff",
+    "static/media/Hellix-SemiBold.woff": "/fetch-technical-assignment/static/media/Hellix-SemiBold.f5d4672505972ff15b55.woff",
+    "static/media/bling.svg": "/fetch-technical-assignment/static/media/bling.b6652f66b1d9225bccfd.svg",
+    "index.html": "/fetch-technical-assignment/index.html",
+    "main.d6e35f78.css.map": "/fetch-technical-assignment/static/css/main.d6e35f78.css.map",
+    "main.7d6aee9b.js.map": "/fetch-technical-assignment/static/js/main.7d6aee9b.js.map",
+    "170.00bbf436.chunk.js.map": "/fetch-technical-assignment/static/js/170.00bbf436.chunk.js.map",
+    "787.0420ccf9.chunk.js.map": "/fetch-technical-assignment/static/js/787.0420ccf9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35dfc490.css",
-    "static/js/main.54d2ae67.js"
+    "static/css/main.d6e35f78.css",
+    "static/js/main.7d6aee9b.js"
   ]
 }
