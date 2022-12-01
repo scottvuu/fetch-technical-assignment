@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.b40397c3.css",
-    "main.js": "./static/js/main.9f0dd872.js",
-    "static/js/170.63285641.chunk.js": "./static/js/170.63285641.chunk.js",
-    "static/js/787.0420ccf9.chunk.js": "./static/js/787.0420ccf9.chunk.js",
-    "static/media/Hellix-Bold.woff": "./static/media/Hellix-Bold.5032fd667cf8a7de05e1.woff",
-    "static/media/Hellix-Regular.woff": "./static/media/Hellix-Regular.7ba8e1e3f7ad811d4c0f.woff",
-    "static/media/Hellix-SemiBold.woff": "./static/media/Hellix-SemiBold.f5d4672505972ff15b55.woff",
-    "static/media/bling.svg": "./static/media/bling.b6652f66b1d9225bccfd.svg",
-    "index.html": "./index.html",
-    "main.b40397c3.css.map": "./static/css/main.b40397c3.css.map",
-    "main.9f0dd872.js.map": "./static/js/main.9f0dd872.js.map",
-    "170.63285641.chunk.js.map": "./static/js/170.63285641.chunk.js.map",
-    "787.0420ccf9.chunk.js.map": "./static/js/787.0420ccf9.chunk.js.map"
+    "main.css": "/fetch-technical-assignment/static/css/main.d6e35f78.css",
+    "main.js": "/fetch-technical-assignment/static/js/main.25159467.js",
+    "static/js/170.a891e5f5.chunk.js": "/fetch-technical-assignment/static/js/170.a891e5f5.chunk.js",
+    "static/js/787.0420ccf9.chunk.js": "/fetch-technical-assignment/static/js/787.0420ccf9.chunk.js",
+    "static/media/Hellix-Bold.woff": "/fetch-technical-assignment/static/media/Hellix-Bold.5032fd667cf8a7de05e1.woff",
+    "static/media/Hellix-Regular.woff": "/fetch-technical-assignment/static/media/Hellix-Regular.7ba8e1e3f7ad811d4c0f.woff",
+    "static/media/Hellix-SemiBold.woff": "/fetch-technical-assignment/static/media/Hellix-SemiBold.f5d4672505972ff15b55.woff",
+    "static/media/bling.svg": "/fetch-technical-assignment/static/media/bling.b6652f66b1d9225bccfd.svg",
+    "index.html": "/fetch-technical-assignment/index.html",
+    "main.d6e35f78.css.map": "/fetch-technical-assignment/static/css/main.d6e35f78.css.map",
+    "main.25159467.js.map": "/fetch-technical-assignment/static/js/main.25159467.js.map",
+    "170.a891e5f5.chunk.js.map": "/fetch-technical-assignment/static/js/170.a891e5f5.chunk.js.map",
+    "787.0420ccf9.chunk.js.map": "/fetch-technical-assignment/static/js/787.0420ccf9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b40397c3.css",
-    "static/js/main.9f0dd872.js"
+    "static/css/main.d6e35f78.css",
+    "static/js/main.25159467.js"
   ]
 }
