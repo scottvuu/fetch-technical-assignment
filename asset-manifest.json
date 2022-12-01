@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://scottvuu.github.io/static/css/main.35dfc490.css",
-    "main.js": "https://scottvuu.github.io/static/js/main.9a52f343.js",
-    "static/js/170.f82571ed.chunk.js": "https://scottvuu.github.io/static/js/170.f82571ed.chunk.js",
+    "main.js": "https://scottvuu.github.io/static/js/main.54d2ae67.js",
+    "static/js/170.d7b49381.chunk.js": "https://scottvuu.github.io/static/js/170.d7b49381.chunk.js",
     "static/js/787.0420ccf9.chunk.js": "https://scottvuu.github.io/static/js/787.0420ccf9.chunk.js",
     "static/media/Hellix-Bold.woff": "https://scottvuu.github.io/static/media/Hellix-Bold.5032fd667cf8a7de05e1.woff",
     "static/media/Hellix-Regular.woff": "https://scottvuu.github.io/static/media/Hellix-Regular.7ba8e1e3f7ad811d4c0f.woff",
@@ -10,12 +10,12 @@
     "static/media/bling.svg": "https://scottvuu.github.io/static/media/bling.b6652f66b1d9225bccfd.svg",
     "index.html": "https://scottvuu.github.io/index.html",
     "main.35dfc490.css.map": "https://scottvuu.github.io/static/css/main.35dfc490.css.map",
-    "main.9a52f343.js.map": "https://scottvuu.github.io/static/js/main.9a52f343.js.map",
-    "170.f82571ed.chunk.js.map": "https://scottvuu.github.io/static/js/170.f82571ed.chunk.js.map",
+    "main.54d2ae67.js.map": "https://scottvuu.github.io/static/js/main.54d2ae67.js.map",
+    "170.d7b49381.chunk.js.map": "https://scottvuu.github.io/static/js/170.d7b49381.chunk.js.map",
     "787.0420ccf9.chunk.js.map": "https://scottvuu.github.io/static/js/787.0420ccf9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.35dfc490.css",
-    "static/js/main.9a52f343.js"
+    "static/js/main.54d2ae67.js"
   ]
 }
